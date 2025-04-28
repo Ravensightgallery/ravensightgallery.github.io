@@ -1,8 +1,6 @@
 import os
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
-
-
 # Config
 images_dir = "images"
 output_file = "index.html"
@@ -30,7 +28,7 @@ header = '''<!DOCTYPE html>
     <li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
   </ul>
 </header>
-<section id="thumbnails">
+<section id="directory">
 '''
 
 footer = '''
@@ -52,16 +50,26 @@ footer = '''
 
 # Build gallery
 articles = ""
-for filename in sorted(os.listdir(images_dir)):
-    if os.path.splitext(filename)[1].lower() in valid_extensions:
-        clean_title = filename.replace("_", " ").replace("-", " ").rsplit(".", 1)[0]
-        articles += f'''
+
+for folder in sorted(os.listdir(images_dir)):
+    folder_path = os.path.join(images_dir, folder)
+    if os.path.isdir(folder_path):
+        # Clean folder name for display
+        clean_folder_name = folder.replace("-", " ").replace("_", " ").title()
+
+        articles += f"<h2>{clean_folder_name}</h2>\n"
+
+        for filename in sorted(os.listdir(folder_path)):
+            if os.path.splitext(filename)[1].lower() in valid_extensions:
+                clean_title = filename.replace("_", " ").replace("-", " ").rsplit(".", 1)[0]
+                image_path = f"{images_dir}/{folder}/{filename}"
+
+                articles += f'''
 <article>
-    <a class="thumbnail" href="{images_dir}/{filename}" data-position="center center">
-      <img src="{images_dir}/{filename}" alt="{clean_title}" />
+    <a class="thumbnail" href="{image_path}" data-position="center center">
+      <img src="{image_path}" alt="{clean_title}" />
     </a>
-    <h2>{clean_title}</h2>
-    <p>A journey into the unseen world captured by Ravensight.</p>
+    <h3>{clean_title}</h3>
 </article>
 '''
 
