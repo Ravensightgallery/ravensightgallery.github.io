@@ -2,6 +2,7 @@ import os
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 
+
 # Config
 images_dir = "images"
 output_file = "index.html"

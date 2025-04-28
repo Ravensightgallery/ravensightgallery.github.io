@@ -1,9 +1,10 @@
-#!/usr/bin/env xdg-open
 [Desktop Entry]
+Version=1.0
+Type=Application
 Name=Regenerate Ravensight Gallery
 Comment=Automatically rebuild index.html with current images
-Exec=python3 /home/gunner/Documents/Photo\ gallery\ stuff/ravensightgallery.github.io/generate_gallery.py
-Icon=/home/gunner/Documents/Photo\ gallery\ stuff/ravensightgallery.github.io/raven.png
+Exec=bash -c 'cd "/home/gunner/Documents/Photo gallery stuff/ravensightgallery.github.io" && python3 generate_gallery.py'
+Path=/home/gunner/Documents/Photo gallery stuff/ravensightgallery.github.io
+Icon=/home/gunner/Documents/Photo gallery stuff/ravensightgallery.github.io/raven.png
 Terminal=true
-Type=Application
 Categories=Utility;
