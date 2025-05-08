@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>{title}</title>
+  <title>steel-and-nature</title>
   <style>
     body {
       background: #111;
@@ -35,48 +34,96 @@
     .lightbox {
       display: none;
       position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.95);
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
       z-index: 9999;
-      max-width: 90vw;
-      max-height: 80vh;
-      background: rgba(0, 0, 0, 0.9);
-      padding: 10px;
-      border-radius: 12px;
     }
     .lightbox img {
-      max-width: 100%;
-      max-height: 100%;
+      max-width: 90%;
+      max-height: 90%;
     }
     .lightbox-close {
       position: absolute;
-      top: 5px;
-      right: 10px;
+      top: 10px;
+      right: 20px;
       color: white;
       font-size: 24px;
       cursor: pointer;
     }
-    a {
-      color: #9ecbff;
-      display: block;
-      margin-top: 30px;
-    }
   </style>
+</head>
+<body>
+  <h1>steel-and-nature</h1>
+  <div class="gallery">
+    <img src="gallery_images/steel-and-nature/20180112_165307.jpg" alt="20180112_165307.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20180112_165307.jpg')">
+<img src="gallery_images/steel-and-nature/20180112_165428.jpg" alt="20180112_165428.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20180112_165428.jpg')">
+<img src="gallery_images/steel-and-nature/20180318_124939.jpg" alt="20180318_124939.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20180318_124939.jpg')">
+<img src="gallery_images/steel-and-nature/20191229_174501.jpg" alt="20191229_174501.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20191229_174501.jpg')">
+<img src="gallery_images/steel-and-nature/20191229_174511.jpg" alt="20191229_174511.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20191229_174511.jpg')">
+<img src="gallery_images/steel-and-nature/20200731_192047.jpg" alt="20200731_192047.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20200731_192047.jpg')">
+<img src="gallery_images/steel-and-nature/20211113_070539.jpg" alt="20211113_070539.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20211113_070539.jpg')">
+<img src="gallery_images/steel-and-nature/20220808_164440.jpg" alt="20220808_164440.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20220808_164440.jpg')">
+<img src="gallery_images/steel-and-nature/20220808_164505.jpg" alt="20220808_164505.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20220808_164505.jpg')">
+<img src="gallery_images/steel-and-nature/20220820_142536.jpg" alt="20220820_142536.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20220820_142536.jpg')">
+<img src="gallery_images/steel-and-nature/20230118_162952.jpg" alt="20230118_162952.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20230118_162952.jpg')">
+<img src="gallery_images/steel-and-nature/20230118_162955.jpg" alt="20230118_162955.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20230118_162955.jpg')">
+<img src="gallery_images/steel-and-nature/20230418_152725.jpg" alt="20230418_152725.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20230418_152725.jpg')">
+<img src="gallery_images/steel-and-nature/20230423_065318.jpg" alt="20230423_065318.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20230423_065318.jpg')">
+<img src="gallery_images/steel-and-nature/20230515_045735.jpg" alt="20230515_045735.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20230515_045735.jpg')">
+<img src="gallery_images/steel-and-nature/20230528_191434.jpg" alt="20230528_191434.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20230528_191434.jpg')">
+<img src="gallery_images/steel-and-nature/20240410_162413.jpg" alt="20240410_162413.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20240410_162413.jpg')">
+<img src="gallery_images/steel-and-nature/20240410_162421.jpg" alt="20240410_162421.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20240410_162421.jpg')">
+<img src="gallery_images/steel-and-nature/20240519_074939.jpg" alt="20240519_074939.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20240519_074939.jpg')">
+<img src="gallery_images/steel-and-nature/20240519_075359.jpg" alt="20240519_075359.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20240519_075359.jpg')">
+<img src="gallery_images/steel-and-nature/20240717_055425.jpg" alt="20240717_055425.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20240717_055425.jpg')">
+<img src="gallery_images/steel-and-nature/20240717_055532.jpg" alt="20240717_055532.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20240717_055532.jpg')">
+<img src="gallery_images/steel-and-nature/20240717_160713.jpg" alt="20240717_160713.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20240717_160713.jpg')">
+<img src="gallery_images/steel-and-nature/20240718_111536.jpg" alt="20240718_111536.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20240718_111536.jpg')">
+<img src="gallery_images/steel-and-nature/20240820_061705.jpg" alt="20240820_061705.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20240820_061705.jpg')">
+<img src="gallery_images/steel-and-nature/20240820_061714.jpg" alt="20240820_061714.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20240820_061714.jpg')">
+<img src="gallery_images/steel-and-nature/20240904_155213.jpg" alt="20240904_155213.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20240904_155213.jpg')">
+<img src="gallery_images/steel-and-nature/20241017_171947.jpg" alt="20241017_171947.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20241017_171947.jpg')">
+<img src="gallery_images/steel-and-nature/20241111_135341.jpg" alt="20241111_135341.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20241111_135341.jpg')">
+<img src="gallery_images/steel-and-nature/20241111_135414.jpg" alt="20241111_135414.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20241111_135414.jpg')">
+<img src="gallery_images/steel-and-nature/20241111_135449.jpg" alt="20241111_135449.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20241111_135449.jpg')">
+<img src="gallery_images/steel-and-nature/20241111_135539.jpg" alt="20241111_135539.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20241111_135539.jpg')">
+<img src="gallery_images/steel-and-nature/20241111_135601.jpg" alt="20241111_135601.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20241111_135601.jpg')">
+<img src="gallery_images/steel-and-nature/20241122_175353.jpg" alt="20241122_175353.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20241122_175353.jpg')">
+<img src="gallery_images/steel-and-nature/20250410_082337.jpg" alt="20250410_082337.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20250410_082337.jpg')">
+<img src="gallery_images/steel-and-nature/20250410_082407.jpg" alt="20250410_082407.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20250410_082407.jpg')">
+<img src="gallery_images/steel-and-nature/20250410_181506.jpg" alt="20250410_181506.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20250410_181506.jpg')">
+<img src="gallery_images/steel-and-nature/20250412_060412.jpg" alt="20250412_060412.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20250412_060412.jpg')">
+<img src="gallery_images/steel-and-nature/20250412_070009.jpg" alt="20250412_070009.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20250412_070009.jpg')">
+<img src="gallery_images/steel-and-nature/20250414_221752.jpg" alt="20250414_221752.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20250414_221752.jpg')">
+<img src="gallery_images/steel-and-nature/20250416_151852.jpg" alt="20250416_151852.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20250416_151852.jpg')">
+<img src="gallery_images/steel-and-nature/20250416_151930.jpg" alt="20250416_151930.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20250416_151930.jpg')">
+<img src="gallery_images/steel-and-nature/20250416_151941.jpg" alt="20250416_151941.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20250416_151941.jpg')">
+<img src="gallery_images/steel-and-nature/20250416_152039.jpg" alt="20250416_152039.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20250416_152039.jpg')">
+<img src="gallery_images/steel-and-nature/20250416_152139.jpg" alt="20250416_152139.jpg" onclick="showLightbox('gallery_images/steel-and-nature/20250416_152139.jpg')">
+
+  </div>
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="">
+    <div id="lightbox-caption" style="color:white; margin-top:10px;"></div>
+  </div>
+  <br><a href="index.html">← Back to Home</a>
   <script>
     let images = [];
     let currentIndex = -1;
 
     function showLightbox(src) {
-      const lightbox = document.getElementById("lightbox");
-      const lightboxImg = document.getElementById("lightbox-img");
-      const caption = document.getElementById("lightbox-caption");
-
       images = Array.from(document.querySelectorAll('.gallery img'));
       currentIndex = images.findIndex(img => img.getAttribute("src") === src);
-      lightboxImg.src = src;
-      caption.innerText = src.split('/').pop();
-      lightbox.style.display = "flex";
+      document.getElementById("lightbox-img").src = src;
+      document.getElementById("lightbox-caption").innerText = src.split('/').pop();
+      document.getElementById("lightbox").style.display = "flex";
     }
 
     function closeLightbox() {
@@ -86,35 +133,20 @@
     function navigate(direction) {
       if (currentIndex === -1) return;
       currentIndex += direction;
-
       if (currentIndex < 0) currentIndex = images.length - 1;
       if (currentIndex >= images.length) currentIndex = 0;
-
-      let nextSrc = images[currentIndex].getAttribute("src");
+      const nextSrc = images[currentIndex].getAttribute("src");
       document.getElementById("lightbox-img").src = nextSrc;
       document.getElementById("lightbox-caption").innerText = nextSrc.split('/').pop();
     }
 
     document.addEventListener("keydown", function(e) {
-      const lightbox = document.getElementById("lightbox");
-      if (lightbox.style.display === "flex") {
+      if (document.getElementById("lightbox").style.display === "flex") {
         if (e.key === "ArrowRight") navigate(1);
         if (e.key === "ArrowLeft") navigate(-1);
         if (e.key === "Escape") closeLightbox();
       }
     });
   </script>
-</head>
-<body>
-  <h1>{title}</h1>
-  <div class="gallery">
-    {images}
-  </div>
-  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-    <span class="lightbox-close">&times;</span>
-    <img id="lightbox-img" src="" alt="Zoomed image">
-    <div style="margin-top:10px; color:white;" id="lightbox-caption"></div>
-  </div>
-  <br><a href="index.html">← Back to Home</a>
 </body>
 </html>
