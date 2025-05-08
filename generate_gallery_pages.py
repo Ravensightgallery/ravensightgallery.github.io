@@ -122,19 +122,17 @@ document.addEventListener("contextmenu", function(e) {{
 """
 
 # Generate each gallery page
-# Generate each gallery page
 for folder in os.listdir(source_dir):
     folder_path = os.path.join(source_dir, folder)
     if os.path.isdir(folder_path):
         watermarked_path = os.path.join(folder_path, "watermarked")
         if not os.path.exists(watermarked_path):
             print(f"⛔ No watermarked folder found in: {folder_path}")
-            continue  # this is now inside the for-loop, so it's valid
+            continue
 
         images_html = ""
         for file in sorted(os.listdir(watermarked_path)):
             if file.lower().endswith(('.jpg', '.jpeg', '.png')):
                 rel_path = f'gallery_images/{folder}/watermarked/{file}'
+                print(f"📸 Adding image: {rel_path}")
                 images_html += f'<img src="{rel_path}" alt="{file}" onclick="showLightbox(\'{rel_path}\')">\n'
-
-print("✅ Gallery pages generated.")
