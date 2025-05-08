@@ -127,15 +127,15 @@ for folder in os.listdir(source_dir):
     folder_path = os.path.join(source_dir, folder)
     if os.path.isdir(folder_path):
         images_html = ""
-        for file in sorted(os.listdir(folder_path)):
-            if file.lower().endswith(('.jpg', '.jpeg', '.png')):
-                rel_path = f'gallery_images/{folder}/{file}'
-                images_html += f'<img src="{rel_path}" alt="{file}" onclick="showLightbox(\'{rel_path}\')">\n'
 
         page_name = folder.replace(" ", "-") + ".html"
         output_path = os.path.join(output_dir, page_name)
 
         with open(output_path, "w") as f:
             f.write(html_template.format(title=folder, images=images_html))
+for file in sorted(os.listdir(folder_path)):
+    if file.lower().endswith(('.jpg', '.jpeg', '.png')):
+        rel_path = f'gallery_images/{folder}/watermarked/{file}'
+        images_html += f'<img src="{rel_path}" alt="{file}" onclick="showLightbox(\'{rel_path}\')">\n'
 
 print("✅ Gallery pages generated.")
