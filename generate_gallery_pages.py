@@ -126,16 +126,15 @@ document.addEventListener("contextmenu", function(e) {{
 for folder in os.listdir(source_dir):
     folder_path = os.path.join(source_dir, folder)
     if os.path.isdir(folder_path):
+        watermarked_path = os.path.join(folder_path, "watermarked")
+        if not os.path.exists(watermarked_path):
+            print(f"⛔ No watermarked folder found in: {folder_path}")
+            continue  # this is now inside the for-loop, so it's valid
+
         images_html = ""
-
-        page_name = folder.replace(" ", "-") + ".html"
-        output_path = os.path.join(output_dir, page_name)
-
-        with open(output_path, "w") as f:
-            f.write(html_template.format(title=folder, images=images_html))
-for file in sorted(os.listdir(folder_path)):
-    if file.lower().endswith(('.jpg', '.jpeg', '.png')):
-        rel_path = f'gallery_images/{folder}/watermarked/{file}'
-        images_html += f'<img src="{rel_path}" alt="{file}" onclick="showLightbox(\'{rel_path}\')">\n'
+        for file in sorted(os.listdir(watermarked_path)):
+            if file.lower().endswith(('.jpg', '.jpeg', '.png')):
+                rel_path = f'gallery_images/{folder}/watermarked/{file}'
+                images_html += f'<img src="{rel_path}" alt="{file}" onclick="showLightbox(\'{rel_path}\')">\n'
 
 print("✅ Gallery pages generated.")
