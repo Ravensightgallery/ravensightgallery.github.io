@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>amazing-machines</title>
+  <title>{title}</title>
   <style>
     body {
       background: #111;
@@ -64,82 +64,57 @@
     }
   </style>
   <script>
+    let images = [];
+    let currentIndex = -1;
+
     function showLightbox(src) {
-      const box = document.getElementById('lightbox');
-      const img = document.getElementById('lightbox-img');
-      img.src = src;
-      box.style.display = 'block';
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+      const caption = document.getElementById("lightbox-caption");
+
+      images = Array.from(document.querySelectorAll('.gallery img'));
+      currentIndex = images.findIndex(img => img.getAttribute("src") === src);
+      lightboxImg.src = src;
+      caption.innerText = src.split('/').pop();
+      lightbox.style.display = "flex";
     }
+
     function closeLightbox() {
-      document.getElementById('lightbox').style.display = 'none';
+      document.getElementById("lightbox").style.display = "none";
     }
+
+    function navigate(direction) {
+      if (currentIndex === -1) return;
+      currentIndex += direction;
+
+      if (currentIndex < 0) currentIndex = images.length - 1;
+      if (currentIndex >= images.length) currentIndex = 0;
+
+      let nextSrc = images[currentIndex].getAttribute("src");
+      document.getElementById("lightbox-img").src = nextSrc;
+      document.getElementById("lightbox-caption").innerText = nextSrc.split('/').pop();
+    }
+
+    document.addEventListener("keydown", function(e) {
+      const lightbox = document.getElementById("lightbox");
+      if (lightbox.style.display === "flex") {
+        if (e.key === "ArrowRight") navigate(1);
+        if (e.key === "ArrowLeft") navigate(-1);
+        if (e.key === "Escape") closeLightbox();
+      }
+    });
   </script>
 </head>
 <body>
-  <h1>amazing-machines</h1>
+  <h1>{title}</h1>
   <div class="gallery">
-    <img src="images/amazing-machines/1000004881.jpg" alt="1000004881.jpg" onclick="showLightbox('images/amazing-machines/1000004881.jpg')">
-<img src="images/amazing-machines/20220422_191504.jpg" alt="20220422_191504.jpg" onclick="showLightbox('images/amazing-machines/20220422_191504.jpg')">
-<img src="images/amazing-machines/20220910_130129 - Copy.jpg" alt="20220910_130129 - Copy.jpg" onclick="showLightbox('images/amazing-machines/20220910_130129 - Copy.jpg')">
-<img src="images/amazing-machines/20220910_130135 - Copy.jpg" alt="20220910_130135 - Copy.jpg" onclick="showLightbox('images/amazing-machines/20220910_130135 - Copy.jpg')">
-<img src="images/amazing-machines/20220910_130151 - Copy.jpg" alt="20220910_130151 - Copy.jpg" onclick="showLightbox('images/amazing-machines/20220910_130151 - Copy.jpg')">
-<img src="images/amazing-machines/20220910_130154 - Copy.jpg" alt="20220910_130154 - Copy.jpg" onclick="showLightbox('images/amazing-machines/20220910_130154 - Copy.jpg')">
-<img src="images/amazing-machines/20220910_130211 - Copy.jpg" alt="20220910_130211 - Copy.jpg" onclick="showLightbox('images/amazing-machines/20220910_130211 - Copy.jpg')">
-<img src="images/amazing-machines/20220910_130216.jpg" alt="20220910_130216.jpg" onclick="showLightbox('images/amazing-machines/20220910_130216.jpg')">
-<img src="images/amazing-machines/20220910_130229 - Copy.jpg" alt="20220910_130229 - Copy.jpg" onclick="showLightbox('images/amazing-machines/20220910_130229 - Copy.jpg')">
-<img src="images/amazing-machines/20220910_130245 - Copy.jpg" alt="20220910_130245 - Copy.jpg" onclick="showLightbox('images/amazing-machines/20220910_130245 - Copy.jpg')">
-<img src="images/amazing-machines/20220910_130252 - Copy.jpg" alt="20220910_130252 - Copy.jpg" onclick="showLightbox('images/amazing-machines/20220910_130252 - Copy.jpg')">
-<img src="images/amazing-machines/20220910_130303 - Copy.jpg" alt="20220910_130303 - Copy.jpg" onclick="showLightbox('images/amazing-machines/20220910_130303 - Copy.jpg')">
-<img src="images/amazing-machines/20220910_130311 - Copy.jpg" alt="20220910_130311 - Copy.jpg" onclick="showLightbox('images/amazing-machines/20220910_130311 - Copy.jpg')">
-<img src="images/amazing-machines/20220910_130352 - Copy.jpg" alt="20220910_130352 - Copy.jpg" onclick="showLightbox('images/amazing-machines/20220910_130352 - Copy.jpg')">
-<img src="images/amazing-machines/20220910_130400 - Copy.jpg" alt="20220910_130400 - Copy.jpg" onclick="showLightbox('images/amazing-machines/20220910_130400 - Copy.jpg')">
-<img src="images/amazing-machines/20220910_130415.jpg" alt="20220910_130415.jpg" onclick="showLightbox('images/amazing-machines/20220910_130415.jpg')">
-<img src="images/amazing-machines/20220910_130426.jpg" alt="20220910_130426.jpg" onclick="showLightbox('images/amazing-machines/20220910_130426.jpg')">
-<img src="images/amazing-machines/20220910_130440.jpg" alt="20220910_130440.jpg" onclick="showLightbox('images/amazing-machines/20220910_130440.jpg')">
-<img src="images/amazing-machines/20220910_130458.jpg" alt="20220910_130458.jpg" onclick="showLightbox('images/amazing-machines/20220910_130458.jpg')">
-<img src="images/amazing-machines/20220910_130506.jpg" alt="20220910_130506.jpg" onclick="showLightbox('images/amazing-machines/20220910_130506.jpg')">
-<img src="images/amazing-machines/20220910_130523.jpg" alt="20220910_130523.jpg" onclick="showLightbox('images/amazing-machines/20220910_130523.jpg')">
-<img src="images/amazing-machines/20220910_130543.jpg" alt="20220910_130543.jpg" onclick="showLightbox('images/amazing-machines/20220910_130543.jpg')">
-<img src="images/amazing-machines/20220910_130551.jpg" alt="20220910_130551.jpg" onclick="showLightbox('images/amazing-machines/20220910_130551.jpg')">
-<img src="images/amazing-machines/20220910_130659.jpg" alt="20220910_130659.jpg" onclick="showLightbox('images/amazing-machines/20220910_130659.jpg')">
-<img src="images/amazing-machines/20220910_130707.jpg" alt="20220910_130707.jpg" onclick="showLightbox('images/amazing-machines/20220910_130707.jpg')">
-<img src="images/amazing-machines/20220910_130711.jpg" alt="20220910_130711.jpg" onclick="showLightbox('images/amazing-machines/20220910_130711.jpg')">
-<img src="images/amazing-machines/20220910_130715.jpg" alt="20220910_130715.jpg" onclick="showLightbox('images/amazing-machines/20220910_130715.jpg')">
-<img src="images/amazing-machines/20220910_130722.jpg" alt="20220910_130722.jpg" onclick="showLightbox('images/amazing-machines/20220910_130722.jpg')">
-<img src="images/amazing-machines/20220910_130726.jpg" alt="20220910_130726.jpg" onclick="showLightbox('images/amazing-machines/20220910_130726.jpg')">
-<img src="images/amazing-machines/20220910_130818.jpg" alt="20220910_130818.jpg" onclick="showLightbox('images/amazing-machines/20220910_130818.jpg')">
-<img src="images/amazing-machines/20220910_130839.jpg" alt="20220910_130839.jpg" onclick="showLightbox('images/amazing-machines/20220910_130839.jpg')">
-<img src="images/amazing-machines/20220910_130906.jpg" alt="20220910_130906.jpg" onclick="showLightbox('images/amazing-machines/20220910_130906.jpg')">
-<img src="images/amazing-machines/20220910_130914.jpg" alt="20220910_130914.jpg" onclick="showLightbox('images/amazing-machines/20220910_130914.jpg')">
-<img src="images/amazing-machines/20220910_130918.jpg" alt="20220910_130918.jpg" onclick="showLightbox('images/amazing-machines/20220910_130918.jpg')">
-<img src="images/amazing-machines/20220910_130931.jpg" alt="20220910_130931.jpg" onclick="showLightbox('images/amazing-machines/20220910_130931.jpg')">
-<img src="images/amazing-machines/20220910_130953.jpg" alt="20220910_130953.jpg" onclick="showLightbox('images/amazing-machines/20220910_130953.jpg')">
-<img src="images/amazing-machines/20220910_131008.jpg" alt="20220910_131008.jpg" onclick="showLightbox('images/amazing-machines/20220910_131008.jpg')">
-<img src="images/amazing-machines/20220910_131022.jpg" alt="20220910_131022.jpg" onclick="showLightbox('images/amazing-machines/20220910_131022.jpg')">
-<img src="images/amazing-machines/20220910_131025.jpg" alt="20220910_131025.jpg" onclick="showLightbox('images/amazing-machines/20220910_131025.jpg')">
-<img src="images/amazing-machines/20220910_131032.jpg" alt="20220910_131032.jpg" onclick="showLightbox('images/amazing-machines/20220910_131032.jpg')">
-<img src="images/amazing-machines/20230821_122812.jpg" alt="20230821_122812.jpg" onclick="showLightbox('images/amazing-machines/20230821_122812.jpg')">
-<img src="images/amazing-machines/20230821_122829.jpg" alt="20230821_122829.jpg" onclick="showLightbox('images/amazing-machines/20230821_122829.jpg')">
-<img src="images/amazing-machines/20230821_122851.jpg" alt="20230821_122851.jpg" onclick="showLightbox('images/amazing-machines/20230821_122851.jpg')">
-<img src="images/amazing-machines/20230821_123035.jpg" alt="20230821_123035.jpg" onclick="showLightbox('images/amazing-machines/20230821_123035.jpg')">
-<img src="images/amazing-machines/20231219_173615.jpg" alt="20231219_173615.jpg" onclick="showLightbox('images/amazing-machines/20231219_173615.jpg')">
-<img src="images/amazing-machines/20231219_173647.jpg" alt="20231219_173647.jpg" onclick="showLightbox('images/amazing-machines/20231219_173647.jpg')">
-<img src="images/amazing-machines/20240505_133958.jpg" alt="20240505_133958.jpg" onclick="showLightbox('images/amazing-machines/20240505_133958.jpg')">
-<img src="images/amazing-machines/20240505_134025.jpg" alt="20240505_134025.jpg" onclick="showLightbox('images/amazing-machines/20240505_134025.jpg')">
-<img src="images/amazing-machines/20240608_120139.jpg" alt="20240608_120139.jpg" onclick="showLightbox('images/amazing-machines/20240608_120139.jpg')">
-<img src="images/amazing-machines/20240608_120147.jpg" alt="20240608_120147.jpg" onclick="showLightbox('images/amazing-machines/20240608_120147.jpg')">
-<img src="images/amazing-machines/20240922_153413.jpg" alt="20240922_153413.jpg" onclick="showLightbox('images/amazing-machines/20240922_153413.jpg')">
-<img src="images/amazing-machines/20240922_153431.jpg" alt="20240922_153431.jpg" onclick="showLightbox('images/amazing-machines/20240922_153431.jpg')">
-<img src="images/amazing-machines/20241213_121240.jpg" alt="20241213_121240.jpg" onclick="showLightbox('images/amazing-machines/20241213_121240.jpg')">
-<img src="images/amazing-machines/IMG_4158-1.jpg" alt="IMG_4158-1.jpg" onclick="showLightbox('images/amazing-machines/IMG_4158-1.jpg')">
-<img src="images/amazing-machines/received_338409564946607.jpeg" alt="received_338409564946607.jpeg" onclick="showLightbox('images/amazing-machines/received_338409564946607.jpeg')">
-<img src="images/amazing-machines/received_434122868363014.jpeg" alt="received_434122868363014.jpeg" onclick="showLightbox('images/amazing-machines/received_434122868363014.jpeg')">
-
+    {images}
   </div>
   <div id="lightbox" class="lightbox" onclick="closeLightbox()">
     <span class="lightbox-close">&times;</span>
     <img id="lightbox-img" src="" alt="Zoomed image">
+    <div style="margin-top:10px; color:white;" id="lightbox-caption"></div>
   </div>
-  <a href="index.html">← Back to Home</a>
+  <br><a href="index.html">← Back to Home</a>
 </body>
 </html>

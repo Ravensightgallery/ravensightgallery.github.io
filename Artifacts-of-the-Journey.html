@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Artifacts of the Journey</title>
+  <title>{title}</title>
   <style>
     body {
       background: #111;
@@ -64,30 +64,57 @@
     }
   </style>
   <script>
+    let images = [];
+    let currentIndex = -1;
+
     function showLightbox(src) {
-      const box = document.getElementById('lightbox');
-      const img = document.getElementById('lightbox-img');
-      img.src = src;
-      box.style.display = 'block';
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+      const caption = document.getElementById("lightbox-caption");
+
+      images = Array.from(document.querySelectorAll('.gallery img'));
+      currentIndex = images.findIndex(img => img.getAttribute("src") === src);
+      lightboxImg.src = src;
+      caption.innerText = src.split('/').pop();
+      lightbox.style.display = "flex";
     }
+
     function closeLightbox() {
-      document.getElementById('lightbox').style.display = 'none';
+      document.getElementById("lightbox").style.display = "none";
     }
+
+    function navigate(direction) {
+      if (currentIndex === -1) return;
+      currentIndex += direction;
+
+      if (currentIndex < 0) currentIndex = images.length - 1;
+      if (currentIndex >= images.length) currentIndex = 0;
+
+      let nextSrc = images[currentIndex].getAttribute("src");
+      document.getElementById("lightbox-img").src = nextSrc;
+      document.getElementById("lightbox-caption").innerText = nextSrc.split('/').pop();
+    }
+
+    document.addEventListener("keydown", function(e) {
+      const lightbox = document.getElementById("lightbox");
+      if (lightbox.style.display === "flex") {
+        if (e.key === "ArrowRight") navigate(1);
+        if (e.key === "ArrowLeft") navigate(-1);
+        if (e.key === "Escape") closeLightbox();
+      }
+    });
   </script>
 </head>
 <body>
-  <h1>Artifacts of the Journey</h1>
+  <h1>{title}</h1>
   <div class="gallery">
-    <img src="images/Artifacts of the Journey/20240719_120408.jpg" alt="20240719_120408.jpg" onclick="showLightbox('images/Artifacts of the Journey/20240719_120408.jpg')">
-<img src="images/Artifacts of the Journey/20240719_120423.jpg" alt="20240719_120423.jpg" onclick="showLightbox('images/Artifacts of the Journey/20240719_120423.jpg')">
-<img src="images/Artifacts of the Journey/20240719_120433.jpg" alt="20240719_120433.jpg" onclick="showLightbox('images/Artifacts of the Journey/20240719_120433.jpg')">
-<img src="images/Artifacts of the Journey/20240719_120440.jpg" alt="20240719_120440.jpg" onclick="showLightbox('images/Artifacts of the Journey/20240719_120440.jpg')">
-
+    {images}
   </div>
   <div id="lightbox" class="lightbox" onclick="closeLightbox()">
     <span class="lightbox-close">&times;</span>
     <img id="lightbox-img" src="" alt="Zoomed image">
+    <div style="margin-top:10px; color:white;" id="lightbox-caption"></div>
   </div>
-  <a href="index.html">← Back to Home</a>
+  <br><a href="index.html">← Back to Home</a>
 </body>
 </html>
