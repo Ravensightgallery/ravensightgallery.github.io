@@ -1,6 +1,6 @@
 import os
-source_dir = "/home/gunner/Documents/Photo gallery stuff/ravensightgallery.github.io/images"
 
+source_dir = "gallery_images"
 output_dir = os.getcwd()
 
 html_template = """
@@ -27,8 +27,9 @@ html_template = """
       justify-content: center;
     }}
     .gallery img {{
-      width: 900px;
-      max-width: 90%;
+      width: 300px;
+      max-width: 100%;
+      height: auto;
       border: 2px solid #444;
       border-radius: 8px;
       cursor: pointer;
@@ -40,45 +41,29 @@ html_template = """
     .lightbox {{
       display: none;
       position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.95);
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
       z-index: 9999;
-      max-width: 90vw;
-      max-height: 80vh;
-      background: rgba(0, 0, 0, 0.9);
-      padding: 10px;
-      border-radius: 12px;
     }}
     .lightbox img {{
-      max-width: 100%;
-      max-height: 100%;
+      max-width: 90%;
+      max-height: 90%;
     }}
     .lightbox-close {{
       position: absolute;
-      top: 5px;
-      right: 10px;
+      top: 10px;
+      right: 20px;
       color: white;
       font-size: 24px;
       cursor: pointer;
     }}
-    a {{
-      color: #9ecbff;
-      display: block;
-      margin-top: 30px;
-    }}
   </style>
-  <script>
-    function showLightbox(src) {{
-      const box = document.getElementById('lightbox');
-      const img = document.getElementById('lightbox-img');
-      img.src = src;
-      box.style.display = 'block';
-    }}
-    function closeLightbox() {{
-      document.getElementById('lightbox').style.display = 'none';
-    }}
-  </script>
 </head>
 <body>
   <h1>{title}</h1>
@@ -87,20 +72,57 @@ html_template = """
   </div>
   <div id="lightbox" class="lightbox" onclick="closeLightbox()">
     <span class="lightbox-close">&times;</span>
-    <img id="lightbox-img" src="" alt="Zoomed image">
+    <img id="lightbox-img" src="" alt="">
+    <div id="lightbox-caption" style="color:white; margin-top:10px;"></div>
   </div>
-  <a href="index.html">← Back to Home</a>
+  <br><a href="index.html">← Back to Home</a>
+  <script>
+    let images = [];
+    let currentIndex = -1;
+
+    function showLightbox(src) {{
+      images = Array.from(document.querySelectorAll('.gallery img'));
+      currentIndex = images.findIndex(img => img.getAttribute("src") === src);
+      document.getElementById("lightbox-img").src = src;
+      document.getElementById("lightbox-caption").innerText = src.split('/').pop();
+      document.getElementById("lightbox").style.display = "flex";
+    }}
+
+    function closeLightbox() {{
+      document.getElementById("lightbox").style.display = "none";
+    }}
+
+    function navigate(direction) {{
+      if (currentIndex === -1) return;
+      currentIndex += direction;
+      if (currentIndex < 0) currentIndex = images.length - 1;
+      if (currentIndex >= images.length) currentIndex = 0;
+      const nextSrc = images[currentIndex].getAttribute("src");
+      document.getElementById("lightbox-img").src = nextSrc;
+      document.getElementById("lightbox-caption").innerText = nextSrc.split('/').pop();
+    }}
+
+    document.addEventListener("keydown", function(e) {{
+      if (document.getElementById("lightbox").style.display === "flex") {{
+        if (e.key === "ArrowRight") navigate(1);
+        if (e.key === "ArrowLeft") navigate(-1);
+        if (e.key === "Escape") closeLightbox();
+      }}
+    }});
+  </script>
 </body>
 </html>
 """
 
+# Generate each gallery page
+# Generate each gallery page
 for folder in os.listdir(source_dir):
     folder_path = os.path.join(source_dir, folder)
     if os.path.isdir(folder_path):
         images_html = ""
         for file in sorted(os.listdir(folder_path)):
             if file.lower().endswith(('.jpg', '.jpeg', '.png')):
-                rel_path = os.path.relpath(os.path.join(folder_path, file), output_dir)
+                rel_path = f'gallery_images/{folder}/{file}'
                 images_html += f'<img src="{rel_path}" alt="{file}" onclick="showLightbox(\'{rel_path}\')">\n'
 
         page_name = folder.replace(" ", "-") + ".html"
