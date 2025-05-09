@@ -3,7 +3,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Artifacts of the Journey</title>
+<title>Artifacts-of-the-Journey</title>
+
   <style>
     body {
       background: #111;
@@ -61,9 +62,13 @@
   </style>
 </head>
 <body>
-  <h1>Artifacts of the Journey</h1>
+<h1>Artifacts-of-the-Journey</h1>
   <div class="gallery">
-    
+    <img src="gallery_images/Artifacts of the Journey/watermarked/20240719_120408.jpg" alt="20240719_120408.jpg" onclick="showLightbox('gallery_images/Artifacts of the Journey/watermarked/20240719_120408.jpg')">
+<img src="gallery_images/Artifacts of the Journey/watermarked/20240719_120423.jpg" alt="20240719_120423.jpg" onclick="showLightbox('gallery_images/Artifacts of the Journey/watermarked/20240719_120423.jpg')">
+<img src="gallery_images/Artifacts of the Journey/watermarked/20240719_120433.jpg" alt="20240719_120433.jpg" onclick="showLightbox('gallery_images/Artifacts of the Journey/watermarked/20240719_120433.jpg')">
+<img src="gallery_images/Artifacts of the Journey/watermarked/20240719_120440.jpg" alt="20240719_120440.jpg" onclick="showLightbox('gallery_images/Artifacts of the Journey/watermarked/20240719_120440.jpg')">
+
   </div>
   <div id="lightbox" class="lightbox" onclick="closeLightbox()">
     <span class="lightbox-close">&times;</span>
@@ -104,13 +109,13 @@
         if (e.key === "Escape") closeLightbox();
       }
     });
-// Disable right-click on images
-document.addEventListener("contextmenu", function(e) {
-  if (e.target.tagName === "IMG") {
-    e.preventDefault();
-  }
-});
 
+    // Disable right-click on images
+    document.addEventListener("contextmenu", function(e) {
+      if (e.target.tagName === "IMG") {
+        e.preventDefault();
+      }
+    });
   </script>
 </body>
 </html>
