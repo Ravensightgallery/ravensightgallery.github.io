@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,6 +32,12 @@
     .gallery img:hover {
       transform: scale(1.05);
     }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
     .lightbox {
       display: none;
       position: fixed;
@@ -45,11 +50,20 @@
       align-items: center;
       flex-direction: column;
       z-index: 9999;
+      animation: fadeIn 0.3s ease;
     }
+
     .lightbox img {
       max-width: 90%;
       max-height: 90%;
+      transition: transform 0.3s ease;
+      transform: scale(0.95);
     }
+
+    .lightbox.show img {
+      transform: scale(1);
+    }
+
     .lightbox-close {
       position: absolute;
       top: 10px;
@@ -58,12 +72,22 @@
       font-size: 24px;
       cursor: pointer;
     }
+
+    #lightbox-caption {
+      color: #aaa;
+      font-style: italic;
+      font-size: 1.2em;
+      margin-top: 12px;
+    }
   </style>
 </head>
 <body>
   <h1>amazing-machines</h1>
+
   <div class="gallery">
-    <img src="gallery_images/amazing-machines/watermarked/1000004881.jpg" alt="1000004881.jpg" onclick="showLightbox('gallery_images/amazing-machines/watermarked/1000004881.jpg')">
+    <!-- Insert your <img> tags here as before -->
+    <!-- You can keep all the <img src=...> from your original file -->
+<img src="gallery_images/amazing-machines/watermarked/1000004881.jpg" alt="1000004881.jpg" onclick="showLightbox('gallery_images/amazing-machines/watermarked/1000004881.jpg')">
 <img src="gallery_images/amazing-machines/watermarked/20220422_191504.jpg" alt="20220422_191504.jpg" onclick="showLightbox('gallery_images/amazing-machines/watermarked/20220422_191504.jpg')">
 <img src="gallery_images/amazing-machines/watermarked/20220910_130129 - Copy.jpg" alt="20220910_130129 - Copy.jpg" onclick="showLightbox('gallery_images/amazing-machines/watermarked/20220910_130129 - Copy.jpg')">
 <img src="gallery_images/amazing-machines/watermarked/20220910_130135 - Copy.jpg" alt="20220910_130135 - Copy.jpg" onclick="showLightbox('gallery_images/amazing-machines/watermarked/20220910_130135 - Copy.jpg')">
@@ -120,13 +144,16 @@
 <img src="gallery_images/amazing-machines/watermarked/received_338409564946607.jpeg" alt="received_338409564946607.jpeg" onclick="showLightbox('gallery_images/amazing-machines/watermarked/received_338409564946607.jpeg')">
 <img src="gallery_images/amazing-machines/watermarked/received_434122868363014.jpeg" alt="received_434122868363014.jpeg" onclick="showLightbox('gallery_images/amazing-machines/watermarked/received_434122868363014.jpeg')">
 
+    </div>
+
+  <div id="lightbox" class="lightbox">
+    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+    <img id="lightbox-img" src="" alt="" onclick="event.stopPropagation()">
+    <div id="lightbox-caption"></div>
   </div>
-  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-    <span class="lightbox-close">&times;</span>
-    <img id="lightbox-img" src="" alt="">
-    <div id="lightbox-caption" style="color:white; margin-top:10px;"></div>
-  </div>
+
   <br><a href="index.html">← Back to Home</a>
+
   <script>
     let images = [];
     let currentIndex = -1;
@@ -134,13 +161,20 @@
     function showLightbox(src) {
       images = Array.from(document.querySelectorAll('.gallery img'));
       currentIndex = images.findIndex(img => img.getAttribute("src") === src);
+      const filename = src.split('/').pop().replace(/[-_]/g, ' ').replace(/\.\w+$/, '');
+
       document.getElementById("lightbox-img").src = src;
-      document.getElementById("lightbox-caption").innerText = src.split('/').pop();
-      document.getElementById("lightbox").style.display = "flex";
+      document.getElementById("lightbox-caption").innerText = filename;
+
+      const lightbox = document.getElementById("lightbox");
+      lightbox.style.display = "flex";
+      lightbox.classList.add("show");
     }
 
     function closeLightbox() {
-      document.getElementById("lightbox").style.display = "none";
+      const lightbox = document.getElementById("lightbox");
+      lightbox.classList.remove("show");
+      lightbox.style.display = "none";
     }
 
     function navigate(direction) {
@@ -148,10 +182,15 @@
       currentIndex += direction;
       if (currentIndex < 0) currentIndex = images.length - 1;
       if (currentIndex >= images.length) currentIndex = 0;
+
       const nextSrc = images[currentIndex].getAttribute("src");
+      const filename = nextSrc.split('/').pop().replace(/[-_]/g, ' ').replace(/\.\w+$/, '');
+
       document.getElementById("lightbox-img").src = nextSrc;
-      document.getElementById("lightbox-caption").innerText = nextSrc.split('/').pop();
+      document.getElementById("lightbox-caption").innerText = filename;
     }
+
+    document.getElementById("lightbox").addEventListener("click", closeLightbox);
 
     document.addEventListener("keydown", function(e) {
       if (document.getElementById("lightbox").style.display === "flex") {

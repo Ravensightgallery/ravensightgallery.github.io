@@ -5,8 +5,7 @@
   <title>🦅 Ravensight Gallery</title>
   <style>
     body {
-background: url('site-bg.jpg') no-repeat center center fixed;
-
+      background: url('site-bg.jpg') no-repeat center center fixed;
       background-size: cover;
       color: #e0e0e0;
       font-family: 'Segoe UI', sans-serif;
@@ -39,17 +38,92 @@ background: url('site-bg.jpg') no-repeat center center fixed;
       padding: 15px 25px;
       border-radius: 10px;
       background-color: rgba(0, 0, 0, 0.6);
-      transition: background 0.3s, transform 0.2s;
+      transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
     }
 
     a:hover {
       background-color: #2a2a2a;
       transform: scale(1.05);
+      box-shadow: 0 0 10px #9ecbff;
     }
-  </style>
+
+    #raven-icon {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      font-size: 22px;
+      color: #666;
+      cursor: pointer;
+      transition: color 0.5s ease, text-shadow 0.5s ease;
+    }
+
+    #raven-icon:hover {
+      color: #9ecbff;
+      text-shadow: 0 0 8px #9ecbff;
+    }
+
+    #raven-whisper {
+      margin-top: 80px;
+      color: #444;
+      font-style: italic;
+      font-size: 0.9em;
+      opacity: 0;
+      transition: opacity 2s ease;
+    }
+
+    #raven-quote {
+      position: fixed;
+      bottom: 10px;
+      left: 20px;
+      color: rgba(255,255,255,0.05);
+      font-size: 2em;
+      font-style: italic;
+      pointer-events: none;
+    }
+h1 {
+  font-size: 3em;
+  margin-bottom: 40px;
+  padding: 20px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  transition: text-shadow 0.3s ease;
+}
+
+h1:hover {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+.eye-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 0 12px rgba(51, 0, 51, 0.8); /* almost black purple */
+}
+
+.eye-icon:hover {
+  transform: scale(1.05);
+}
+
+/* Remove banner background container if used */
+body h1 {
+  background: none;
+}
+
+    </style>
 </head>
 <body>
-  <h1>🦅 Ravensight Gallery</h1>
+
+<div id="raven-icon" title="She's watching.">🕯️</div>
+
+<h1>
+  <img src="assets/eye-watchful.png" alt="Raven Eye" class="eye-icon">
+  <span>Ravensight Gallery</span>
+</h1>
+
+
   <div class="gallery-links">
     <a href="Artifacts-of-the-Journey.html">Artifacts of the Journey</a>
     <a href="amazing-machines.html">Amazing Machines</a>
@@ -58,5 +132,22 @@ background: url('site-bg.jpg') no-repeat center center fixed;
     <a href="tame-spirits.html">Tame Spirits</a>
     <a href="echoes-of-the-wild.html">🦌 Echoes of the Wild</a>
   </div>
-</body>
+
+  <footer>
+    <span id="raven-whisper">You didn’t find this gallery. It found you.</span>
+  </footer>
+
+  <div id="raven-quote">"Beauty hides in shadows."</div>
+
+  <script>
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('raven-whisper').style.opacity = 1;
+      }, 1000);
+    });
+</script>
+
+  </body>
 </html>
+
+

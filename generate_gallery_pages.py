@@ -134,11 +134,11 @@ for folder in os.listdir(source_dir):
         for file in sorted(os.listdir(watermarked_path)):
             if file.lower().endswith(('.jpg', '.jpeg', '.png')):
                 rel_path = f'gallery_images/{folder}/watermarked/{file}'
-                print(f"📸 Adding image: {rel_path}")
                 images_html += f'<img src="{rel_path}" alt="{file}" onclick="showLightbox(\'{rel_path}\')">\n'
 
-        # Save HTML file
-        output_path = os.path.join(output_dir, f"{folder}.html")
+        page_name = folder.replace(" ", "-") + ".html"
+        output_path = os.path.join(output_dir, page_name)
+
         with open(output_path, "w") as f:
             f.write(html_template.format(title=folder, images=images_html))
 
