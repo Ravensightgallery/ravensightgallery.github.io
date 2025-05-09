@@ -2,25 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Ravensight Gallery</title>
+  <title>🦅 Ravensight Gallery</title>
   <style>
     body {
-      background: #0d0d0d;
+      background: url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
       color: #e0e0e0;
       font-family: 'Segoe UI', sans-serif;
       text-align: center;
+      margin: 0;
       padding: 50px;
     }
+
     h1 {
       font-size: 3em;
       margin-bottom: 40px;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 10px;
+      display: inline-block;
     }
+
     .gallery-links {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 30px;
     }
+
     a {
       color: #9ecbff;
       font-size: 1.5em;
@@ -28,29 +37,15 @@
       border: 2px solid #444;
       padding: 15px 25px;
       border-radius: 10px;
-      background-color: #1a1a1a;
+      background-color: rgba(0, 0, 0, 0.6);
       transition: background 0.3s, transform 0.2s;
     }
+
     a:hover {
       background-color: #2a2a2a;
       transform: scale(1.05);
     }
-  body {
-    background: url('background.jpg') no-repeat center center fixed;
-    background-size: cover;
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-  }
-
-  h1, .button-container {
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 20px;
-    border-radius: 10px;
-    display: inline-block;
-  }
-</style>
-
+  </style>
 </head>
 <body>
   <h1>🦅 Ravensight Gallery</h1>
@@ -61,7 +56,6 @@
     <a href="steel-and-nature.html">Steel and Nature</a>
     <a href="tame-spirits.html">Tame Spirits</a>
     <a href="echoes-of-the-wild.html">🦌 Echoes of the Wild</a>
-
   </div>
 </body>
 </html>
