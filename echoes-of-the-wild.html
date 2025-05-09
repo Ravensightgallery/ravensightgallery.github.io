@@ -63,7 +63,20 @@
 <body>
   <h1>echoes-of-the-wild</h1>
   <div class="gallery">
-    
+    <img src="gallery_images/echoes-of-the-wild/watermarked/20240505_154107.jpg" alt="20240505_154107.jpg" onclick="showLightbox('gallery_images/echoes-of-the-wild/watermarked/20240505_154107.jpg')">
+<img src="gallery_images/echoes-of-the-wild/watermarked/20240505_154230.jpg" alt="20240505_154230.jpg" onclick="showLightbox('gallery_images/echoes-of-the-wild/watermarked/20240505_154230.jpg')">
+<img src="gallery_images/echoes-of-the-wild/watermarked/20240624_163405.jpg" alt="20240624_163405.jpg" onclick="showLightbox('gallery_images/echoes-of-the-wild/watermarked/20240624_163405.jpg')">
+<img src="gallery_images/echoes-of-the-wild/watermarked/20240624_163750.jpg" alt="20240624_163750.jpg" onclick="showLightbox('gallery_images/echoes-of-the-wild/watermarked/20240624_163750.jpg')">
+<img src="gallery_images/echoes-of-the-wild/watermarked/20240624_163755.jpg" alt="20240624_163755.jpg" onclick="showLightbox('gallery_images/echoes-of-the-wild/watermarked/20240624_163755.jpg')">
+<img src="gallery_images/echoes-of-the-wild/watermarked/20240719_132801.jpg" alt="20240719_132801.jpg" onclick="showLightbox('gallery_images/echoes-of-the-wild/watermarked/20240719_132801.jpg')">
+<img src="gallery_images/echoes-of-the-wild/watermarked/20240803_104936.jpg" alt="20240803_104936.jpg" onclick="showLightbox('gallery_images/echoes-of-the-wild/watermarked/20240803_104936.jpg')">
+<img src="gallery_images/echoes-of-the-wild/watermarked/20241025_133609.jpg" alt="20241025_133609.jpg" onclick="showLightbox('gallery_images/echoes-of-the-wild/watermarked/20241025_133609.jpg')">
+<img src="gallery_images/echoes-of-the-wild/watermarked/20241025_133620.jpg" alt="20241025_133620.jpg" onclick="showLightbox('gallery_images/echoes-of-the-wild/watermarked/20241025_133620.jpg')">
+<img src="gallery_images/echoes-of-the-wild/watermarked/20241028_110318.jpg" alt="20241028_110318.jpg" onclick="showLightbox('gallery_images/echoes-of-the-wild/watermarked/20241028_110318.jpg')">
+<img src="gallery_images/echoes-of-the-wild/watermarked/20241028_110324.jpg" alt="20241028_110324.jpg" onclick="showLightbox('gallery_images/echoes-of-the-wild/watermarked/20241028_110324.jpg')">
+<img src="gallery_images/echoes-of-the-wild/watermarked/20241106_064615.jpg" alt="20241106_064615.jpg" onclick="showLightbox('gallery_images/echoes-of-the-wild/watermarked/20241106_064615.jpg')">
+<img src="gallery_images/echoes-of-the-wild/watermarked/20241106_064626.jpg" alt="20241106_064626.jpg" onclick="showLightbox('gallery_images/echoes-of-the-wild/watermarked/20241106_064626.jpg')">
+
   </div>
   <div id="lightbox" class="lightbox" onclick="closeLightbox()">
     <span class="lightbox-close">&times;</span>
@@ -104,13 +117,13 @@
         if (e.key === "Escape") closeLightbox();
       }
     });
-// Disable right-click on images
-document.addEventListener("contextmenu", function(e) {
-  if (e.target.tagName === "IMG") {
-    e.preventDefault();
-  }
-});
 
+    // Disable right-click on images
+    document.addEventListener("contextmenu", function(e) {
+      if (e.target.tagName === "IMG") {
+        e.preventDefault();
+      }
+    });
   </script>
 </body>
 </html>
