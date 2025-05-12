@@ -1,0 +1,21 @@
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Backup files
+*.bak
+*~
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# ZIPs or archives
+*.zip
+
+# Local logs or shell output
+nohup.out
+*.log
+
+# Optional: ignore this auto-push script
+autopush.sh
