@@ -124,3 +124,15 @@ an editor opened by 'git commit'. Please make sure all processes
 are terminated then try again. If it still fails, a git process
 may have crashed in this repository earlier:
 remove the file manually to continue.
+fatal: Unable to create '/home/gunner/Documents/Bridget/Photo gallery stuff/ravensightgallery.github.io/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+[main cf68f72] Auto-push update: 2025-05-12 09:56:53
+ 2 files changed, 16 insertions(+)
+ create mode 100644 gallery_images/echoes-of-the-wild/1000016201.jpg
+Everything up-to-date
+🔄 Detected change: ./gallery_images/echoes-of-the-wild/1000016201.jpg
