@@ -19,3 +19,9 @@ nohup.out
 
 # Optional: ignore this auto-push script
 autopush.sh
+
+# Project utilities and local artifacts
+*.log
+*.desktop
+*.sh
+index.html.save
